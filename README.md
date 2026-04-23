@@ -1,5 +1,5 @@
 <h1 align="center">Ariadne</h1>
-<p align="center"><em>The one task to rule them all.</em></p>
+<p align="center"><em>Navigate the labyrinth of development without losing the thread.</em></p>
 
 A unified dashboard for your development flow. Aggregates your open tasks, pull requests, reviews, tickets, and error reports from every service you work with into one local app — so you can spend less time jumping between tabs and more time actually shipping.
 
