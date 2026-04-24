@@ -14,11 +14,11 @@ A unified dashboard for your development flow. Aggregates your open tasks, pull 
 
 Built to solve the "what should I actually be working on right now?" problem — surfacing stale reviews, unanswered comments, blocked PRs, overdue tickets, and error spikes in a single glance.
 
-## Latest release — v1.1.0
+## Latest release — v1.2.0
 
-- [Linux (tar.gz)](https://github.com/MobergVidra/ariadne/releases/download/v1.1.0/ariadne-v1.1.0-linux.tar.gz)
-- [macOS (dmg)](https://github.com/MobergVidra/ariadne/releases/download/v1.1.0/ariadne-v1.1.0-macos.dmg)
-- [Windows (zip)](https://github.com/MobergVidra/ariadne/releases/download/v1.1.0/ariadne-v1.1.0-windows.zip)
+- [Linux (tar.gz)](https://github.com/MobergVidra/ariadne/releases/download/v1.2.0/ariadne-v1.2.0-linux.tar.gz)
+- [macOS (dmg)](https://github.com/MobergVidra/ariadne/releases/download/v1.2.0/ariadne-v1.2.0-macos.dmg)
+- [Windows (zip)](https://github.com/MobergVidra/ariadne/releases/download/v1.2.0/ariadne-v1.2.0-windows.zip)
 
 See [all releases](https://github.com/MobergVidra/ariadne/releases).
 
