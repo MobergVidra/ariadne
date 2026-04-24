@@ -78,3 +78,59 @@ Drag/remove the app, then optionally clear user data:
 - **Linux:** `rm -rf ~/.local/share/Ariadne ~/.config/autostart/Ariadne.desktop`
 - **macOS:** `rm -rf "~/Library/Application Support/Ariadne" ~/Library/LaunchAgents/com.Ariadne.plist`
 - **Windows:** delete `%APPDATA%\Ariadne`, remove the `Ariadne` entry under `HKCU\Software\Microsoft\Windows\CurrentVersion\Run`
+
+
+## Troubleshooting
+
+### Linux: blank/white window on launch
+
+`./ariadne/ariadne` opens but the window stays white. Almost always a missing QtWebEngine runtime dependency.
+
+**Fedora / RHEL / CentOS:**
+```bash
+sudo dnf install -y \
+  nss nspr alsa-lib cups-libs \
+  atk at-spi2-atk at-spi2-core \
+  libxkbcommon xcb-util-cursor \
+  libXcomposite libXdamage libXfixes libXrandr libXcursor libXtst libXScrnSaver \
+  libdrm libgbm pango cairo \
+  mesa-libGL mesa-libEGL \
+  gtk3 libsecret
+```
+
+**Debian / Ubuntu:**
+```bash
+sudo apt-get install -y \
+  libnss3 libnspr4 libasound2 libcups2 \
+  libatk1.0-0 libatk-bridge2.0-0 libatspi2.0-0 \
+  libxkbcommon0 libxcb-cursor0 \
+  libxcomposite1 libxdamage1 libxfixes3 libxrandr2 libxcursor1 libxtst6 \
+  libdrm2 libgbm1 libpango-1.0-0 libcairo2 \
+  libgl1 libegl1 \
+  libgtk-3-0 libsecret-1-0
+```
+
+Then run `./ariadne/ariadne` again.
+
+### Diagnostic script
+
+If the install above doesn't fix it, run the diagnostic (prints distro, missing `.so` libs, log tail):
+
+```bash
+curl -sL https://raw.githubusercontent.com/MobergVidra/task-helper/master/ops/diagnose_linux.sh | bash
+```
+
+Paste the output when opening an issue.
+
+### No log file appears
+
+Logs live at:
+- **Linux:** `~/.local/share/Ariadne/logs/ariadne.log`
+- **macOS:** `~/Library/Application Support/Ariadne/logs/ariadne.log`
+- **Windows:** `%APPDATA%\Ariadne\logs\ariadne.log`
+
+If the log file is missing, the backend failed before it could initialize. Run the binary from a terminal so you can see stderr — on Linux that's `./ariadne/ariadne 2>&1 | tee /tmp/ariadne.log`.
+
+### First launch blocked by Gatekeeper (macOS) / SmartScreen (Windows)
+
+Builds are unsigned. See the first-launch column in the install table above.
